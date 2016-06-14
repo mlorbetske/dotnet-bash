@@ -1,10 +1,5 @@
 # dotnet-bash
 
-Tab completion for `dotnet`
+Tab completion for `dotnet` for Ubuntu 14.04+.
 
-###
-cp dotnet.sh /etc/bash_completion.d/dotnet.sh
-source /etc/bash_completion.d/dotnet.sh
-dotnet build -r ubuntu.14.04-x64 -c Release
-sudo ln -s bin/Release/netcoreapp1.0/ubuntu.14.04-x64/_dotnet-complete /usr/bin/_dotnet-complete
-###
+Run `./configure.sh` to install.
