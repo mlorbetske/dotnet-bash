@@ -12,8 +12,7 @@ _dotnet ()
   prev=${COMP_WORDS[COMP_CWORD - 1]}
 
   if [ "$prev" != "dotnet" ]; then
-    if [ -e "./_dotnet-complete" ]; then
-      all=$( ./_dotnet-complete ${COMP_WORDS[@]} | grep -Po ".*" )
+      all=$( /usr/local/bin/_dotnet-complete ${COMP_WORDS[@]} | grep -Po ".*" )
       kind=$( echo $all | grep -Po "\w+(?=:)" )
       args=$( echo $all | grep -Po "(?<=:).*" )
 
@@ -30,7 +29,6 @@ _dotnet ()
       fi
       
       return 0;
-    fi
   fi
 
   words=("new" "restore" "build" "publish" "run" "test" "pack" "help" "-v" "--version" "--verbose" "--info")
@@ -52,4 +50,4 @@ _dotnet ()
   COMPREPLY=( $( compgen -W '${words[@]}' -- $cur ) );
 }
 
-complete -o plusdirs -F _dotnet dotnet
+complete -o default -F _dotnet dotnet
